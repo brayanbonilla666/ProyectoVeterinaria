@@ -4,10 +4,15 @@
  */
 package vModelo;
 
-/**
- *
- * @author brayan
- */
-public class Colaborador {
+    
+public class Colaborador extends Persona{
+    
+    private String identificacion;
+
+    public Colaborador(String nombre, String cedula, String email, String celular, String identificacion) {
+        super(nombre, cedula, email, celular);
+        this.identificacion = identificacion;
+    }
+    
     
 }

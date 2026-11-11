@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package vModelo;
 
-/**
- *
- * @author brayan
- */
-public class MascotaExotica {
+
+public class MascotaExotica extends Animal{
+    
+    private String nPermiso;
+    private boolean sedacion;
+
+    public MascotaExotica(String nombre, String fechaNacimiento, double peso, Propietario propietario, HistorialClinico historialClinico, String nPermiso, boolean sedacion) {
+        super(nombre, fechaNacimiento, peso, propietario, historialClinico);
+        this.nPermiso = nPermiso;
+        this.sedacion = sedacion;
+    }
+    
     
 }

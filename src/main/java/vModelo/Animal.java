@@ -1,13 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package vModelo;
 
-/**
- *
- * @author brayan
- */
 public class Animal {
+    
+    private String nombre;
+    private String fechaNacimiento;
+    private double peso;
+    private Propietario propietario;
+    private HistorialClinico historialClinico;
+
+    public Animal(String nombre, String fechaNacimiento, double peso, Propietario propietario, HistorialClinico historialClinico) {
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.peso = peso;
+        this.propietario = propietario;
+        this.historialClinico = historialClinico;
+    }
+    
     
 }

@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package vModelo;
 
-/**
- *
- * @author brayan
- */
-public class Recepcionista {
+public class Recepcionista extends Colaborador{
+
+    public Recepcionista(String nombre, String cedula, String email, String celular, String identificacion) {
+        super(nombre, cedula, email, celular, identificacion);
+    }
+    
+    
     
 }
