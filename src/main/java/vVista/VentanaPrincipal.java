@@ -3,18 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vVista;
+    
+    import java.awt.event.ActionListener;
+    import javax.swing.JFrame;
 
-/**
- *
- * @author brayan
- */
+    import vVista.VentanaAgendarConsulta;
+    import vVista.VentanaRegistrarPropietario;
+    import vVista.VentanaRegistrarPaciente;
+    import vVista.VentanaRegistrarColaboradores;
+
+
+
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
-
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    
+        private VentanaAgendarConsulta vAgendarConsulta;
+        private VentanaAtenderConsulta vAtenderConsulta;
+        private VentanaHistorial vHistorial;
+        
+        private VentanaRegistrarPropietario vRegistrarPropietario;
+        private VentanaRegistrarPaciente vRegistrarPaciente;
+        private VentanaRegistrarColaboradores vRegistrarColaborador;
+        
+        
     public VentanaPrincipal() {
         initComponents();
     }
@@ -28,21 +40,116 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnRegistrarPaciente = new javax.swing.JButton();
+        tblAgendarConsulta = new javax.swing.JButton();
+        btnRegistrarColaboradores = new javax.swing.JButton();
+        btnAtenderConsulta = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
+        btnRegistrarPropietario = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("VETERINARIA");
+
+        btnRegistrarPaciente.setText("Registrar Paciente");
+        btnRegistrarPaciente.addActionListener(this::btnRegistrarPacienteActionPerformed);
+
+        tblAgendarConsulta.setText("Agendar Consulta");
+        tblAgendarConsulta.addActionListener(this::tblAgendarConsultaActionPerformed);
+
+        btnRegistrarColaboradores.setText("Registrar Colaborador");
+        btnRegistrarColaboradores.addActionListener(this::btnRegistrarColaboradoresActionPerformed);
+
+        btnAtenderConsulta.setText("Atender Consulta");
+        btnAtenderConsulta.addActionListener(this::btnAtenderConsultaActionPerformed);
+
+        btnHistorial.setText("Historial");
+        btnHistorial.addActionListener(this::btnHistorialActionPerformed);
+
+        btnRegistrarPropietario.setText("Registrar Propietario");
+        btnRegistrarPropietario.addActionListener(this::btnRegistrarPropietarioActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRegistrarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tblAgendarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAtenderConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarColaboradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addComponent(btnRegistrarPropietario)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrarPaciente)
+                .addGap(18, 18, 18)
+                .addComponent(tblAgendarConsulta)
+                .addGap(18, 18, 18)
+                .addComponent(btnAtenderConsulta)
+                .addGap(18, 18, 18)
+                .addComponent(btnHistorial)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrarColaboradores)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblAgendarConsultaActionPerformed
+        
+        this.vAgendarConsulta = new VentanaAgendarConsulta(this);
+        this.vAgendarConsulta.setVisible(true);
+        
+    }//GEN-LAST:event_tblAgendarConsultaActionPerformed
+
+    private void btnRegistrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPacienteActionPerformed
+        
+        this.vRegistrarPaciente = new VentanaRegistrarPaciente(this);
+        this.vRegistrarPaciente.setVisible(true);
+        
+    }//GEN-LAST:event_btnRegistrarPacienteActionPerformed
+
+    private void btnRegistrarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPropietarioActionPerformed
+        
+        this.vRegistrarPropietario = new VentanaRegistrarPropietario(this);
+        this.vRegistrarPropietario.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarPropietarioActionPerformed
+
+    private void btnRegistrarColaboradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarColaboradoresActionPerformed
+        
+        this.vRegistrarColaborador = new VentanaRegistrarColaboradores(this);
+        this.vRegistrarColaborador.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarColaboradoresActionPerformed
+
+    private void btnAtenderConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderConsultaActionPerformed
+        
+        this.vAtenderConsulta = new VentanaAtenderConsulta(this);
+        this.vAtenderConsulta.setVisible(true);
+    }//GEN-LAST:event_btnAtenderConsultaActionPerformed
+
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+        
+        this.vHistorial = new VentanaHistorial(this);
+        this.vHistorial.setVisible(true);
+    }//GEN-LAST:event_btnHistorialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +177,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtenderConsulta;
+    private javax.swing.JButton btnHistorial;
+    private javax.swing.JButton btnRegistrarColaboradores;
+    private javax.swing.JButton btnRegistrarPaciente;
+    private javax.swing.JButton btnRegistrarPropietario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton tblAgendarConsulta;
     // End of variables declaration//GEN-END:variables
 }

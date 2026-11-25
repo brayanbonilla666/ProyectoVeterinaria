@@ -4,18 +4,20 @@
  */
 package vVista;
 
-/**
- *
- * @author brayan
- */
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import vVista.VentanaPrincipal;
+    
 public class VentanaAgendarConsulta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaAgendarConsulta.class.getName());
-
-    /**
-     * Creates new form VentanaAgendar
-     */
-    public VentanaAgendarConsulta() {
+        
+        private VentanaPrincipal vPrincipal;
+        
+        private int contadorConsulta = 1;
+    
+    public VentanaAgendarConsulta(VentanaPrincipal p) {
+        this.vPrincipal = p;
         initComponents();
     }
 
@@ -28,47 +30,185 @@ public class VentanaAgendarConsulta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbPropietario = new javax.swing.JComboBox<>();
+        cmbMascota = new javax.swing.JComboBox<>();
+        btnNuevaConsulta = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cmbVeterinario = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        cmbServicio = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblConsultas = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agendar Consulta");
+
+        jLabel1.setText("Propietario");
+
+        jLabel2.setText("Mascota");
+
+        cmbPropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+
+        cmbMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona" }));
+
+        btnNuevaConsulta.setText("Nueva Consulta");
+        btnNuevaConsulta.addActionListener(this::btnNuevaConsultaActionPerformed);
+
+        jLabel3.setText("Veterinario");
+
+        cmbVeterinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+
+        jLabel4.setText("Servicio");
+
+        cmbServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+
+        tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "N°", "Propietario", "Mascota", "Veterinario", "Servicio", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblConsultas);
+
+        btnEliminar.setText("Eliminar ");
+
+        btnModificar.setText("Modificar");
+
+        btnRegresar.setText("Regresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNuevaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(btnRegresar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbMascota, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbPropietario, 0, 120, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbVeterinario, 0, 120, Short.MAX_VALUE)
+                            .addComponent(cmbServicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cmbPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevaConsulta)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnRegresar))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNuevaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaConsultaActionPerformed
+        
+        String selecPropietarios = (String) cmbPropietario.getSelectedItem();
+        String selecMascota = (String) cmbMascota.getSelectedItem();
+        String selecVeterinario = (String) cmbVeterinario.getSelectedItem();
+        String selecServicio = (String) cmbServicio.getSelectedItem();
+        DefaultComboBoxModel<String> modeloCmb = new DefaultComboBoxModel<>();
+        
+        Object itemPropietario = cmbPropietario.getSelectedItem();
+        Object itemMascota = cmbMascota.getSelectedItem();
+        Object itemVeterinario = cmbVeterinario.getSelectedItem();
+        Object itemServicio = cmbServicio.getSelectedItem();
+        
+        int sNumero = contadorConsulta ++;
+;        String sPropietario = (itemPropietario != null) ? itemPropietario.toString() : "";
+        String sMascota = (itemMascota != null) ? itemMascota.toString() : "";
+        String sVeterinario = (itemVeterinario != null) ? itemVeterinario.toString() : "";
+        String sServicio = (itemServicio != null) ? itemServicio.toString() : "";
+        String sEstado = "Pendiente";
+        
+//        if (sPropietario.equals("Seleccionar") || sMascota.equals("Seleccionar") || sVeterinario.equals("Seleccionar") || sServicio.equals("Seleccionar")) {
+//            JOptionPane.showMessageDialog(this, "Por favor, Selecciones todas las opcciones", "Campos vacios" ,JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+        
+        javax.swing.table.DefaultTableModel modeloTbl = (javax.swing.table.DefaultTableModel) tblConsultas.getModel();
+        modeloTbl.addRow(new Object[]{sNumero, sPropietario, sMascota, sVeterinario, sServicio, sEstado});
+        
+    }//GEN-LAST:event_btnNuevaConsultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VentanaAgendarConsulta().setVisible(true));
-    }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevaConsulta;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> cmbMascota;
+    private javax.swing.JComboBox<String> cmbPropietario;
+    private javax.swing.JComboBox<String> cmbServicio;
+    private javax.swing.JComboBox<String> cmbVeterinario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblConsultas;
     // End of variables declaration//GEN-END:variables
 }
